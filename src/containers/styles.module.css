@@ -1,0 +1,7 @@
+.postList {
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    place-items: center;
+}
+
+.films {}

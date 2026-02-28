@@ -2,3 +2,18 @@
     padding: 10pt;
     font-size: 16pt;
 }
+
+.post {
+    background-color: #393939;
+    border-radius: 5%;
+    margin: 10pt;
+    padding: 4pt;
+}
+
+.film {
+    background-color: #393939;
+    margin: 10pt;
+    padding: 4pt;
+    gap: 4pt;
+    display: flex;
+}
