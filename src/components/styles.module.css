@@ -14,6 +14,36 @@
     background-color: #393939;
     margin: 10pt;
     padding: 4pt;
-    gap: 4pt;
+    max-width: fit-content;
+    text-wrap: wrap;
+    color: #ffffff;
+}
+
+.filmName {
+    width: 100%;
+}
+
+.header {
     display: flex;
+    gap: 10pt;
+}
+
+.username {
+    margin-left: auto;
+}
+
+.headerLink {
+    color: #0000ff;
+}
+
+.headerLinkActive {
+    color: #101040;
+}
+
+.headerLinkTransitioning {
+    color: #00ff00;
+}
+
+.headerLinkPending {
+    color: #ff0000;
 }

@@ -1,6 +1,6 @@
 import { FilmElement } from '../components/Film';
 import { Filter } from '../components/Filter';
-import { Search } from '../components/Search';
+import { TextInput } from '../components/TextInput';
 import { FilmTypes, getFilmList, type Film } from '../utils/kinopoisk';
 import styles from './styles.module.css';
 import { useState, useEffect } from 'preact/hooks';
@@ -64,7 +64,7 @@ export function FilmsPage(): React.JSX.Element {
   return (
     <>
       <label>Поиск по названию:</label>
-      <Search callback={setSearchText} />
+      <TextInput callback={setSearchText} />
       <br></br>
       <label>Фильтровать по категории:</label>
       <Filter callback={setFilterCategory} />

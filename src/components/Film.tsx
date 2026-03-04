@@ -1,5 +1,9 @@
+import { useEffect, useState } from 'preact/hooks';
 import type { Film } from '../utils/kinopoisk';
 import style from './styles.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import type { StateValue } from '../store/store';
+import { addToFavourites, removeFromFavourites } from '../store/Favourites';
 
 function formatFilmName(film: Film): string {
   if (film.nameRu && film.nameEn) {
@@ -10,6 +14,24 @@ function formatFilmName(film: Film): string {
 }
 
 export function FilmElement(film: Film): React.JSX.Element {
+  const [isFavourite, setIsFavourite] = useState(false);
+  const favourites = useSelector((state: StateValue) => state.favourites);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setIsFavourite(
+      favourites.findIndex((id: number) => id === film.kinopoiskId) !== -1,
+    );
+  }, [favourites]);
+
+  const addSelfToFavourites = () => {
+    dispatch(addToFavourites(film.kinopoiskId));
+  };
+
+  const removeSelfFromFavourites = () => {
+    dispatch(removeFromFavourites(film.kinopoiskId));
+  };
+
   return (
     <div className={style.film}>
       {film.posterUrlPreview.match(/\/no-poster.png$/) ? (
@@ -17,9 +39,14 @@ export function FilmElement(film: Film): React.JSX.Element {
       ) : (
         <img src={film.posterUrlPreview} alt='film poster'></img>
       )}
-      <div>
-        <h2>{formatFilmName(film)}</h2>
-      </div>
+      <p className={style.filmName}>{formatFilmName(film)}</p>
+      {isFavourite ? (
+        <button onClick={removeSelfFromFavourites}>
+          Удалить из избранного
+        </button>
+      ) : (
+        <button onClick={addSelfToFavourites}>Добавить в избранное</button>
+      )}
     </div>
   );
 }

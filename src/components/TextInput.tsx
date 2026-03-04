@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'preact/hooks';
-
-export interface SearchProps {
+export interface TextInputProps {
   callback: (text: string) => void;
 }
 
-export function Search(props: SearchProps): React.JSX.Element {
+export function TextInput(props: TextInputProps): React.JSX.Element {
   return (
     <input
       type='text'

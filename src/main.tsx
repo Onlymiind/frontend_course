@@ -1,11 +1,12 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './containers/App';
-import { PostsPage } from './containers/Posts';
-import { FilmsPage } from './containers/FilmsPage';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import { RouterProvider } from 'react-router';
+import { router } from './router';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <FilmsPage />
-  </StrictMode>,
+const root = createRoot(document.getElementById('root')!);
+root.render(
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>,
 );
