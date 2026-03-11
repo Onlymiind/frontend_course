@@ -4,6 +4,7 @@ import style from './styles.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import type { StateValue } from '../store/store';
 import { addToFavourites, removeFromFavourites } from '../store/Favourites';
+import { Box, Button } from '@mui/material';
 
 function formatFilmName(film: Film): string {
   if (film.nameRu && film.nameEn) {
@@ -20,20 +21,22 @@ export function FilmElement(film: Film): React.JSX.Element {
 
   useEffect(() => {
     setIsFavourite(
-      favourites.findIndex((id: number) => id === film.kinopoiskId) !== -1,
+      favourites.findIndex(
+        (favFilm: Film) => favFilm.kinopoiskId === film.kinopoiskId,
+      ) !== -1,
     );
   }, [favourites]);
 
   const addSelfToFavourites = () => {
-    dispatch(addToFavourites(film.kinopoiskId));
+    dispatch(addToFavourites(film));
   };
 
   const removeSelfFromFavourites = () => {
-    dispatch(removeFromFavourites(film.kinopoiskId));
+    dispatch(removeFromFavourites(film));
   };
 
   return (
-    <div className={style.film}>
+    <Box className={style.film}>
       {film.posterUrlPreview.match(/\/no-poster.png$/) ? (
         <></>
       ) : (
@@ -41,12 +44,12 @@ export function FilmElement(film: Film): React.JSX.Element {
       )}
       <p className={style.filmName}>{formatFilmName(film)}</p>
       {isFavourite ? (
-        <button onClick={removeSelfFromFavourites}>
+        <Button onClick={removeSelfFromFavourites}>
           Удалить из избранного
-        </button>
+        </Button>
       ) : (
-        <button onClick={addSelfToFavourites}>Добавить в избранное</button>
+        <Button onClick={addSelfToFavourites}>Добавить в избранное</Button>
       )}
-    </div>
+    </Box>
   );
 }

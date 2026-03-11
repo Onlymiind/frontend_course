@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import type { Film } from '../utils/kinopoisk';
 
 export const favouritesSlice = createSlice({
   name: 'favourites',
-  initialState: new Array<number>(),
+  initialState: new Array<Film>(),
   reducers: {
     addToFavourites: (state, action) => {
       state.push(action.payload);

@@ -1,36 +1,29 @@
-import cn from 'classnames';
-import { NavLink, type NavLinkRenderProps } from 'react-router';
-import styles from './styles.module.css';
+import { Tab, Tabs } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { NavLink, useLocation } from 'react-router';
 import type { StateValue } from '../store/store';
+import styles from './styles.module.css';
 
 export function Header(): React.JSX.Element {
-  const setLinkStyle = (statuses: NavLinkRenderProps): string => {
-    if (statuses.isTransitioning) {
-      return cn(styles.headerLink, styles.headerLinkTransitioning);
-    } else if (statuses.isActive) {
-      return cn(styles.headerLink, styles.headerLinkActive);
-    } else if (statuses.isPending) {
-      return cn(styles.headerLink, styles.headerLinkPending);
-    } else {
-      return styles.headerLink;
-    }
-  };
-
+  const location = useLocation();
   const username = useSelector((state: StateValue) => state.username);
-  console.log('Header: ' + username);
+
   return (
-    <div className={styles.header}>
-      <NavLink className={setLinkStyle} to='/films'>
-        Фильмы
-      </NavLink>
-      <NavLink className={setLinkStyle} to='/favourites'>
-        Избранное
-      </NavLink>
-      <NavLink className={setLinkStyle} to='/set_username'>
-        Установить имя пользователя
-      </NavLink>
+    <Tabs value={location.pathname === '/' ? '/films' : location.pathname}>
+      <Tab label='Фильмы' value='/films' to='/films' component={NavLink} />
+      <Tab
+        label='Избранное'
+        value='/favourites'
+        to='/favourites'
+        component={NavLink}
+      />
+      <Tab
+        label='Установить имя пользователя'
+        value='/set_username'
+        to='/set_username'
+        component={NavLink}
+      />
       {username === '' ? <></> : <b className={styles.username}>{username}</b>}
-    </div>
+    </Tabs>
   );
 }
