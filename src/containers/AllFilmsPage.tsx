@@ -1,4 +1,4 @@
-import { FilmCard } from '../components/FilmCard';
+import { FilmCard } from '../stories/FilmCard';
 import { getFilmList, type FilmInfo } from '../utils/kinopoisk';
 import styles from './styles.module.css';
 import { useState, useEffect } from 'preact/hooks';

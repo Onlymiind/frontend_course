@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/preact-vite';
-import { FilmCard } from '../components/FilmCard';
+import { FilmCard } from './FilmCard';
 import { FilmType, type FilmInfo } from '../utils/kinopoisk';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';

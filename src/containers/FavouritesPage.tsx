@@ -2,7 +2,7 @@ import type React from 'preact/compat';
 import { useSelector } from 'react-redux';
 import type { StateValue } from '../store/store';
 import type { FilmInfo } from '../utils/kinopoisk';
-import { FilmCard } from '../components/FilmCard';
+import { FilmCard } from '../stories/FilmCard';
 import style from './styles.module.css';
 
 export function FavouritesPage(): React.JSX.Element {

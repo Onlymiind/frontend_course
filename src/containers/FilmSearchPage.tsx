@@ -1,4 +1,4 @@
-import { FilmCard } from '../components/FilmCard';
+import { FilmCard } from '../stories/FilmCard';
 import { Filter } from '../components/FilmTypeFilter';
 import { TextInput } from '../components/TextInput';
 import { FilmType, getFilmList, type FilmInfo } from '../utils/kinopoisk';
