@@ -26,7 +26,7 @@ export function Filter(props: FilterProps): React.JSX.Element {
       {[...FilmTypeDisplayNames.entries()].map((entry) => {
         const [type_, displayText] = entry;
         return (
-          <MenuItem value={type_} key={type_}>
+          <MenuItem value={type_} key={type_} sx={{ color: '#000000' }}>
             {displayText}
           </MenuItem>
         );
