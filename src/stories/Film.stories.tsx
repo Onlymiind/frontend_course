@@ -1,22 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/preact-vite';
-import { FilmElement } from '../components/Film';
-import type { Film } from '../utils/kinopoisk';
+import { FilmCard } from '../components/FilmCard';
+import { FilmType, type FilmInfo } from '../utils/kinopoisk';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
 
-const FilmStory: Meta<typeof FilmElement> = {
+const FilmStory: Meta<typeof FilmCard> = {
   title: 'Film item',
-  component: FilmElement,
+  component: FilmCard,
   argTypes: {
-    ...({} as Film),
+    ...({} as FilmInfo),
   },
   args: {
-    nameEn: 'Film name',
+    nameOriginal: 'Film name',
     year: 2026,
     kinopoiskId: 1234,
     posterUrl: 'example.com/no-poster.png',
     posterUrlPreview: 'example.com/no-poster.png',
-  } as Film,
+    type: FilmType.FILM,
+  } as FilmInfo,
   decorators: [
     (Story) => (
       <Provider store={store}>

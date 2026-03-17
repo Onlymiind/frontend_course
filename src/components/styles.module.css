@@ -14,13 +14,18 @@
     background-color: #393939;
     margin: 10pt;
     padding: 4pt;
-    max-width: fit-content;
     text-wrap: wrap;
     color: #ffffff;
+    max-width: 300px;
+}
+
+.filmCardImage {
+    width: 300px;
+    height: 400px;
 }
 
 .filmName {
-    width: 100%;
+    text-align: center;
 }
 
 .header {
@@ -33,17 +38,23 @@
 }
 
 .headerLink {
-    color: #0000ff;
+    background-color: #393939;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10pt;
+    padding: 10pt;
+    font-size: 16pt;
 }
 
 .headerLinkActive {
-    color: #101040;
+    background-color: #aaaaaa;
+    color: #000000;
 }
 
 .headerLinkTransitioning {
-    color: #00ff00;
+    background-color: #00ff00;
 }
 
 .headerLinkPending {
-    color: #ff0000;
+    background-color: #ff0000;
 }

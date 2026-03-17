@@ -8,3 +8,22 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.filmInfo {
+    display: flex;
+    background-color: #393939;
+    padding: 4pt;
+    gap: 10pt;
+    color: #ffffff;
+}
+
+.filmInfoImage {
+    width: 450px;
+    height: 600px;
+}
+
+.filmInfoButtons {
+    margin-top: 30pt;
+    display: flex;
+    gap: 10pt;
+}

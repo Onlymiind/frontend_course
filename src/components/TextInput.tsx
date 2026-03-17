@@ -9,8 +9,11 @@ export function TextInput(props: TextInputProps): React.JSX.Element {
   return (
     <TextField
       label={props.label}
-      type='outlined'
+      variant='outlined'
       onInput={(event) => props.callback((event.target as any).value)}
+      sx={{
+        margin: '5pt',
+      }}
     ></TextField>
   );
 }

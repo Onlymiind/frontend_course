@@ -1,15 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { Film } from '../utils/kinopoisk';
+import type { FilmInfo } from '../utils/kinopoisk';
 
 export const favouritesSlice = createSlice({
   name: 'favourites',
-  initialState: new Array<Film>(),
+  initialState: new Array<FilmInfo>(),
   reducers: {
     addToFavourites: (state, action) => {
       state.push(action.payload);
     },
     removeFromFavourites: (state, action) => {
-      return [...state.filter((id) => id !== action.payload)];
+      return [
+        ...state.filter(
+          (film) => film.kinopoiskId !== action.payload.kinopoiskId,
+        ),
+      ];
     },
   },
 });

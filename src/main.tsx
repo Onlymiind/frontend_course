@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { RouterProvider } from 'react-router';
 import { router } from './router';
+import './global_styles.css';
 
 const root = createRoot(document.getElementById('root')!);
 root.render(

@@ -26,6 +26,9 @@ export default defineConfig([globalIgnores(['dist']), {
     },
   },
   rules: {
-    'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    '@typescript-eslint/no-explicit-any': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'curly': 'error',
   },
 }, ...storybook.configs["flat/recommended"]])
